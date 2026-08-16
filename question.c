@@ -106,16 +106,142 @@
 // }
 
 // Write a program to find and display the sum of the first n natural numbers.
+// #include <stdio.h>
+// int main()
+// {
+//     int n, sum = 0;
+//     printf("Enter the number of terms: ");
+//     scanf("%d", &n);
+//     for (int i = 1; i <= n; i++)
+//     {
+//         sum += i;
+//     }
+//     printf("Sum of first %d natural numbers: %d", n, sum);
+//     return 0;
+// }
+// Q9 Write a program to calculate simple and compound interest for given principal, rate, and time.
+#include <stdio.h>
+#include <math.h>
+int main()
+{
+    float principal, rate, time, simple_interest, compound_interest;
+    printf("Enter principal amount: ");
+    scanf("%f", &principal);
+    printf("Enter rate of interest (in percentage): ");
+    scanf("%f", &rate);
+    printf("Enter time (in years): ");
+    scanf("%f", &time);
+
+    // Calculate simple interest
+    simple_interest = (principal * rate * time) / 100;
+
+    // Calculate compound interest
+    compound_interest = principal * (pow((1 + rate / 100), time)) - principal;
+
+    printf("Simple Interest: %.2f\n", simple_interest);
+    printf("Compound Interest: %.2f\n", compound_interest);
+
+    return 0;
+}
+// Q 10: Write a program to input time in seconds and convert it to hours:minutes:seconds format.
 #include <stdio.h>
 int main()
 {
-    int n, sum = 0;
-    printf("Enter the number of terms: ");
-    scanf("%d", &n);
-    for (int i = 1; i <= n; i++)
-    {
-        sum += i;
-    }
-    printf("Sum of first %d natural numbers: %d", n, sum);
+    int total_seconds, hours, minutes, seconds;
+    printf("Enter time in seconds: ");
+    scanf("%d", &total_seconds);
+
+    hours = total_seconds / 3600;
+    minutes = (total_seconds % 3600) / 60;
+    seconds = total_seconds % 60;
+
+    printf("Time in hours:minutes:seconds format: %d:%d:%d\n", hours, minutes, seconds);
+
     return 0;
 }
+// Q 11: Write a program to input an integer and check whether it is even or odd using if–else.
+#include <stdio.h>
+int main()
+{
+    int num;
+    printf("Enter an integer: ");
+    scanf("%d", &num);
+
+    if (num % 2 == 0)
+    {
+        printf("The number is even.\n");
+    }
+    else
+    {
+        printf("The number is odd.\n");
+    }
+
+    return 0;
+}
+// Q 12: Write a program to input an integer and check whether it is positive, negative or zero using nested if–else.
+#include <stdio.h>
+int main()
+{
+    int num;
+    printf("Enter an integer: ");
+    scanf("%d", &num);
+
+    if (num > 0)
+    {
+        printf("The number is positive.\n");
+    }
+    else
+    {
+        if (num < 0)
+        {
+            printf("The number is negative.\n");
+        }
+        else
+        {
+            printf("The number is zero.\n");
+        }
+    }
+
+    return 0;
+}
+// Q 13 : Write a program to input a year and check whether it is a leap year or not using conditional statements.
+#include <stdio.h>
+int main()
+{
+    int year;
+    printf("Enter a year: ");
+    scanf("%d", &year);
+
+    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
+    {
+        printf("%d is a leap year.\n", year);
+    }
+    else
+    {
+        printf("%d is not a leap year.\n", year);
+    }
+
+    return 0;
+}
+
+// Q 14: Write a program to input a character and check whether it is a vowel or consonant using if–else.
+
+// #include <stdio.h>
+// int main()
+// {
+//     char ch;
+//     printf("Enter a character: ");
+//     scanf("%c", &ch);
+
+//     if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
+//         ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U')
+//     {
+//         printf("Vowel\n");
+//     }
+//     else
+//     {
+//         printf("Consonant\n");
+//     }
+
+//     return 0;
+// }
