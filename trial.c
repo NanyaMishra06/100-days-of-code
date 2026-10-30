@@ -13,3 +13,9 @@ int main()
     printf("simple interest is %f",si);
     return 0;
 }
+
+#include <stdio.h>
+int main()
+{
+    printf("hello world");
+}
