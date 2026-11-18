@@ -86,3 +86,126 @@ void display() {
         printf("CGPA: %.2f\n", cgpa(i));
     }
 }
+void search() {
+    char id[20];
+    printf("Enter SAP ID: ");
+    scanf("%19s", id);
+
+    for (int i = 0; i < n; i++) {
+        if (strcmp(s[i].sap, id) == 0) {
+            printf("Name: %s\n", s[i].name);
+            printf("Roll: %d\n", s[i].roll);
+            printf("Phone: %s\n", s[i].phone);
+            printf("Email: %s\n", s[i].email);
+            printf("Year: %d\n", s[i].year);
+            printf("Semester: %d\n", s[i].sem);
+
+            for (int j = 0; j < 8; j++)
+                printf("SGPA %d: %.2f\n", j + 1, s[i].sgpa[j]);
+
+            printf("CGPA: %.2f\n", cgpa(i));
+            return;
+        }
+    }
+
+    printf("Student Not Found\n");
+}
+
+void deleteStudent() {
+    char id[20];
+    printf("Enter SAP ID to delete: ");
+    scanf("%19s", id);
+
+    for (int i = 0; i < n; i++) {
+        if (strcmp(s[i].sap, id) == 0) {
+            for (int j = i; j < n - 1; j++)
+                s[j] = s[j + 1];
+
+            n--;
+            printf("Student Deleted\n");
+            return;
+        }
+    }
+
+    printf("Student Not Found\n");
+}
+
+void yearAverage() {
+    for (int y = 1; y <= 4; y++) {
+        float sum = 0;
+        int count = 0;
+
+        for (int i = 0; i < n; i++) {
+            if (s[i].year == y && cgpa(i) > 0) {
+                sum = sum + cgpa(i);
+                count++;
+            }
+        }
+
+        if (count > 0)
+            printf("Year %d Average CGPA: %.2f\n", y, sum / count);
+        else
+            printf("Year %d: No CGPA available\n", y);
+    }
+}
+
+void sortSAP() {
+    struct Student temp;
+
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (strcmp(s[i].sap, s[j].sap) > 0) {
+                temp = s[i];
+                s[i] = s[j];
+                s[j] = temp;
+            }
+        }
+    }
+
+    display();
+}
+
+void sortName() {
+    struct Student temp;
+
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (strcmp(s[i].name, s[j].name) > 0) {
+                temp = s[i];
+                s[i] = s[j];
+                s[j] = temp;
+            }
+        }
+    }
+
+    display();
+}
+
+void advisor() {
+    char id[20];
+    printf("Enter SAP ID: ");
+    scanf("%19s", id);
+
+    for (int i = 0; i < n; i++) {
+        if (strcmp(s[i].sap, id) == 0) {
+            float c = cgpa(i);
+
+            printf("CGPA: %.2f\n", c);
+
+            if (c == 0)
+                printf("No SGPA available\n");
+            else if (c >= 9)
+                printf("Excellent Performance! Keep it up.\n");
+            else if (c >= 7)
+                printf("Good Performance! Keep studying.\n");
+            else if (c >= 5)
+                printf("Needs Improvement! Study more.\n");
+            else
+                printf("Requires Immediate Attention! Work harder.\n");
+
+            return;
+        }
+    }
+
+    printf("Student Not Found\n");
+}
