@@ -209,3 +209,38 @@ void advisor() {
 
     printf("Student Not Found\n");
 }
+int main() {
+    int choice;
+
+    do {
+        printf("\n===== STUDENT MANAGEMENT =====\n");
+        printf("1. Add Student\n");
+        printf("2. Display All Students\n");
+        printf("3. Search Student\n");
+        printf("4. Delete Student\n");
+        printf("5. Average CGPA by Year\n");
+        printf("6. Sort by SAP ID\n");
+        printf("7. Sort by Name\n");
+        printf("8. Academic Advisor\n");
+        printf("9. Exit\n");
+
+        printf("Enter Choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1: add(); break;
+            case 2: display(); break;
+            case 3: search(); break;
+            case 4: deleteStudent(); break;
+            case 5: yearAverage(); break;
+            case 6: sortSAP(); break;
+            case 7: sortName(); break;
+            case 8: advisor(); break;
+            case 9: printf("Thank You!\n"); break;
+            default: printf("Invalid Choice\n");
+        }
+
+    } while (choice != 9);
+
+    return 0;
+}
