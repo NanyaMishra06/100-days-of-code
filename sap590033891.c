@@ -1,3 +1,8 @@
+// NAME=NANYA MISHRA
+// BATCH 20
+// SAP ID=590033891
+
+
 #include <stdio.h>
 #include <string.h>
 
